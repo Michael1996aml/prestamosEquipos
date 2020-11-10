@@ -19,9 +19,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-            <a class="nav-link" href="{% url 'pag2' %}">Features</a>
-            <a class="nav-link" href="{% url 'pag3' %}">Pricing</a>
+            
+            <a class="nav-link {% if request.path == '/' %} active {% endif %}" aria-current="page" href="{% url 'home' %}">Home</a>
+            <a class="nav-link {% if request.path == '/equipos/' %} active {% endif %}" href="{% url 'equipos' %}">Equipos de prestamos</a>
+            <a class="nav-link {% if request.path == '/contacto/' %} active {% endif %}" href="{% url 'pag3' %}">Contacto</a>
           </div>
         </div>
      </div>
