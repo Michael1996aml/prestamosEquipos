@@ -1,8 +1,11 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Equipo
+from .models import Equipo,Prestamos
 
-class EquipoAdmin(admin.ModelAdmin):
-    readonly_fields =('ingresado','prestamo')
-admin.site.register(Equipo,EquipoAdmin)
+
+    
+admin.site.register(Equipo)
+admin.site.register(Prestamos)
+
+
