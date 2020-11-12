@@ -1,5 +1,62 @@
+body{
+    
+    color: #111;
+}
+
+footer{
+    color: aliceblue;
+    bottom: 0px;
+    width: 100%;
+    background: #111;
+}
+
+.main-content{
+    display: flex;
+}
+
+.main-content .box{
+    flex-basis: 50%;
+    padding: 10px 20px;
+}
+
+.box h2{
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.box .content{
+    margin: 20px 0 0 0;
+}
+
+.left .content p{
+    text-align: justify;
+}
+
+.left .content .social{
+    margin: 20px 0 0 0;
+}
+
+.left .content .social a{
+    margin: 0 2px;
+}
+
+.left .content .social a span{
+    height: 40px;
+    width: 40px;
+    background: #1a1a1a;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.left .content .social a span{
+    background: #f12020;
+}
+
 .img-logo{
-    height: 100px;
+    height: 120px;
     width: auto;
 }
 
@@ -17,5 +74,7 @@
     width: auto;
 }
 .te{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Poppins',sans-serif;
 }
+
+

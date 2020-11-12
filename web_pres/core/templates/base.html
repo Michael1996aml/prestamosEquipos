@@ -1,36 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenido</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'vendor/bootstrap-5.0.0-alpha2-dist/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'vendor/fontawesome-free-5.15.1-web/css/all.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenido</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'vendor/bootstrap-5.0.0-alpha2-dist/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/fontawesome-free-5.15.1-web/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body class="te">
-      <header class="bg-darck bg-gradient text-center">
-      <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <header class="bg-dark  text-center">
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent ">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img class="img-logo" src="{% static 'img/logo.png' %}" alt=""></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="#"><img class="img-logo" src="{% static 'img/logo.png' %}" alt="">Prestamos
+          inc</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            
-            <a class="nav-link text-white {% if request.path == '/' %} active {% endif %}" aria-current="page" href="{% url 'home' %}">Home</a>
-            <a class="nav-link  text-white{% if request.path == '/equipos/' %} active {% endif %}" href="{% url 'equipos' %}">Equipos de prestamos</a>
-            <a class="nav-link  text-white{% if request.path == '/contacto/' %} active {% endif %}" href="{% url 'pag3' %}">Contacto</a>
+
+            <a class="nav-link text-white {% if request.path == '/' %} active {% endif %}" aria-current="page"
+              href="{% url 'home' %}">Home</a>
+            <a class="nav-link  text-white{% if request.path == '/equipos/' %} active {% endif %}"
+              href="{% url 'equipos' %}">Equipos de prestamos</a>
+            <a class="nav-link  text-white{% if request.path == '/contacto/' %} active {% endif %}"
+              href="{% url 'pag3' %}">Contacto</a>
           </div>
         </div>
-     </div>
-      </nav>
-      </header>
-      {% block content %}{% endblock %}
+      </div>
+    </nav>
+  </header>
+  {% block content %}{% endblock %}
+
+  <footer class="mt-5 pt-5">
+      <div class="main-content">
+        <div class="left box">
+          <h2>About</h2>
+          <div class="content">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime quas quo, ipsa rerum commodi unde exercitationem distinctio sed consequuntur facere fuga minus ab doloremque magnam sit, beatae accusantium incidunt at?</p>
+            <div class="social">
+              <a href=""><span class="fab fa-facebook-f"></span></a>
+              <a href=""><span class="fab fa-twitter"></span></a>
+              <a href=""><span class="fab fa-instagram"></span></a>
+              <a href=""><span class="fab fa-youtube"></span></a>
+            </div>
+          </div>
+        </div>
+        <div class="center box">
+          <h2>Adress</h2>
+          <div class="content">
+            <div class="place">
+              <span class="fas fa-map-marker-alt"></span>
+              <span class="text">Viña del mar</span>
+            </div>
+            <div class="phone">
+              <span class="fas fa-phone-alt"></span>
+              <span class="text">(+56) 2 2999 3862</span>
+            </div>
+            <div class="email">
+              <span class="fas fa-envelope"></span>
+              <span class="text">abc@example.cl</span>
+            </div>
+          </div>
+        </div>
+        <div class="right box">
+          <h2>Contacto</h2>
+          <div class="content">
+            <form action="#">
+              <div class="email">
+              <div class="text">Email *</div>
+              <input type="email" required>
+              </div>
+              <div class="msg">
+                <div class="text">Mensage</div>
+                <textarea cols="25" rows="2" requirted></textarea>
+              </div>
+              <div class="btn">
+                <button type="submit">Enviar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  </footer>
 
   <script src="{% static 'vendor/bootstrap-5.0.0-alpha2-dist/js/bootstrap.bundle.min.js' %}"></script>
 
 </body>
+
 </html>
