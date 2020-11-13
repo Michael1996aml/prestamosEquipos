@@ -7,7 +7,6 @@ class Equipo(models.Model):
     imagen = models.URLField(max_length=200, verbose_name="URL de la imagen")
     estado = models.BooleanField(verbose_name="Disponible ?",default=False)
     ingresado = models.DateTimeField(auto_now_add=True,verbose_name="Fecha de ingreso")
-    prestamo = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de prestamo")
 
     def __str__(self):
         return self.titulo 
