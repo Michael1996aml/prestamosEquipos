@@ -12,44 +12,61 @@
 </head>
 
 <body class="te">
-  <header class="bg-dark  text-center">
-    <nav class="navbar navbar-expand-lg navbar-light bg-transparent ">
+  <header class="  text-center coo ">
+    <nav class="navbar navbar-expand-lg ">
       <div class="container-fluid">
-        <a class="navbar-brand text-white mr-5" href="#"><img class="img-logo" src="{% static 'img/logo.png' %}" alt="">Prestamos
-          inc</a>
+        <a class="navbar-brand text-white mr-5" href="#"><img class="img-logo" src="{% static 'img/duo.png' %}" alt="">
+          </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
           aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon "></span>
         </button>
         <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
           <div class="navbar-nav ">
 
             <a class="nav-link text-white {% if request.path == '/' %} active {% endif %}" aria-current="page"
               href="{% url 'home' %}">Home</a>
-              {% if request.user.is_authenticated %}
             <a class="nav-link  text-white {% if request.path == '/equipos/' %} active {% endif %}"
               href="{% url 'equipos' %}">Equipos de prestamos</a>
-              {% endif %}
+            <a class="nav-link  text-white {% if request.path == '/equipos/' %} active {% endif %}"
+              href="{% url 'agregar_pres' %}">Agregar Prestamo</a>
+            <a class="nav-link   text-white {% if request.path == '/equipos/' %} active {% endif %}"
+              href="{% url 'listar_pres' %}">Listar Prestamo</a>
+            
+            {% if user.is_authenticated %}
+            <a class="nav-link  text-white {% if request.path == '/equipos/' %} active {% endif %}"
+              href="{% url 'logout' %}">Cerrar sesion</a>
 
+            <a href="#">@{{user.username}}</a>
+
+            {% else %}
+            <a class="nav-link  text-white {% if request.path == '/equipos/' %} active {% endif %}"
+              href="{% url 'login' %}">Iniciar sesion</a>
+
+            {% endif %}
            
           </div>
         </div>
       </div>
     </nav>
   </header>
+   
+
+
+
   {% block content %}{% endblock %}
 
-  <footer class="mt-5 pt-5">
+  <footer class="mt-5 pt-5 coo" >
       <div class="main-content">
         <div class="left box">
           <h2>About</h2>
           <div class="content">
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime quas quo, ipsa rerum commodi unde exercitationem distinctio sed consequuntur facere fuga minus ab doloremque magnam sit, beatae accusantium incidunt at?</p>
             <div class="social">
-              <a href="https://www.facebook.com/DuocUC.SedeVinadelMar"><span class="fab fa-facebook-f"></span></a>
-              <a href="https://twitter.com/DuocUC?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><span class="fab fa-twitter"></span></a>
-              <a href="https://www.instagram.com/duocuc_cl/?hl=es-la"><span class="fab fa-instagram"></span></a>
-              <a href="https://www.youtube.com/c/DuocUCvideos/featured"><span class="fab fa-youtube"></span></a>
+              <a href="https://www.facebook.com/DuocUC.SedeVinadelMar"><span class="fab fa-facebook-f text-dark bg-warning"></span></a>
+              <a href="https://twitter.com/DuocUC?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><span class="fab fa-twitter text-dark bg-warning"></span></a>
+              <a href="https://www.instagram.com/duocuc_cl/?hl=es-la"><span class="fab fa-instagram text-dark bg-warning"></span></a>
+              <a href="https://www.youtube.com/c/DuocUCvideos/featured"><span class="fab fa-youtube text-dark bg-warning"></span></a>
             </div>
           </div>
         </div>
@@ -71,7 +88,7 @@
           </div>
         </div>
 
-<!--        <div class="right box">
+        <div class="right box">
          <h2>Contact</h2>
           <div class="content">
            <form action="" method="POST">{% csrf_token %} 
@@ -86,7 +103,7 @@
               <div class="btn">
                 <button type="submit">Enviar</button>
               </div>
-            </form>-->
+            </form>
 
           </div>
         </div>
@@ -94,7 +111,17 @@
   </footer>
 
   <script src="{% static 'vendor/bootstrap-5.0.0-alpha2-dist/js/bootstrap.bundle.min.js' %}"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+      {% if messages %}
+        {% for m in messages %}
+          <script>
+            Swal.fire({
+              "title":"{{m}}",
+              "icon":"success"
+            })
+          </script>
+          {% endfor %}
+      {% endif %}
 </body>
 
 </html>

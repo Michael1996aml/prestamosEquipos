@@ -1,13 +1,24 @@
+.fondo{
+    background: #1f4037;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #99f2c8, #1f4037);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #99f2c8, #1f4037); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+.coo{
+    background: #000000;
+}
 .titlee{
     font-size: 1.125rem;
     font-weight: 600;
     text-transform: uppercase;
-    background: #303030;
+    background: #000000;
     color: white;
 }
-
+.na{
+    background: #000000;
+}
 body{
-    
+    background: #FFFFFF;
     color: #111;
 }
 
@@ -15,7 +26,7 @@ footer{
     color: aliceblue;
     bottom: 0px;
     width: 100%;
-    background: #111;
+    background: #000000;
 }
 
 .main-content{

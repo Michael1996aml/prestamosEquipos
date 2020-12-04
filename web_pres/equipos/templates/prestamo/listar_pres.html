@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card col-12 col-md-8 offset-md-2 img-fluid mt-5">
+    <div class="card-body">
+        <h2>Listado De Prestamos</h2>
+        <hr>
+        <table class="table table-striped table-responsive">
+            <tr>
+                <th>Nombre</th>
+                <th>Equipo</th>
+                <th>Fecha Devolucion</th>
+                <th>Tipo</th>
+                <th>Opciones</th>
+            </tr>
+            {% for p in prestamos %}
+            <tr>
+                <td>{{p.Nombre}}</td>
+                <td>{{p.Equipoo}}</td>
+                <td>{{p.fechad}}</td>
+                <td>
+                    {% if p.tipo %}
+                    Estudiante
+                    {% else %}
+                    Profesor
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'modificar_pres' p.id %}" class="btn btn-info btn-sm mt-1">Modificar</a>
+
+                    <a href="{% url 'eliminar_pres' p.id %}" class="btn btn-danger btn-sm mt-1">Eliminar</a>
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+
+    </div>
+</div>
+
+
+
+
+
+{% endblock content %}
