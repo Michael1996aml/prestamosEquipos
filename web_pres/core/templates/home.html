@@ -14,7 +14,7 @@
 
             {% for p in equipos %}
             <div class="carousel-item {% if forloop.counter == 1 %} active{% endif %}">
-              <img src="{{p.imagen}}" class="d-block w-100 img-a" alt="...">
+              <img src="{{p.imagen.url}}" class="d-block w-100 img-a" alt="...">
   
             </div>
             {% endfor %}

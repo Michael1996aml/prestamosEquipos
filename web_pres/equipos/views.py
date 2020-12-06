@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Equipo,Prestamos
-from .forms import PrestamoForm
+from .forms import PrestamoForm,EquipoForm
 from django.contrib import messages
 
 
@@ -14,6 +14,20 @@ def verEquipos(request):
 def detalleEquipos(request, prod_id):
     equipo = get_object_or_404(Equipo, id = prod_id)
     return render(request, "ver_equipos.html",{"equipo":equipo})
+
+def agregar_e(request):
+    data = {
+        'form': EquipoForm()
+    }
+    if request.method == 'POST':
+        formulario = EquipoForm(data=request.POST, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request,"Agregado Correctamente")
+            return redirect(to="equipos")
+        else:
+            data["form"] = formulario
+    return render(request,'equipox/agregar_e.html',data)
 
 def agregar_prestamo(request):
 
@@ -63,4 +77,3 @@ def eliminar_prestamo(request,id):
     messages.success(request, "Eliminado Correctamente")
     return redirect(to='listar_pres')
 
-   

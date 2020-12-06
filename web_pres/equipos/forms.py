@@ -1,5 +1,5 @@
 from django import forms
-from .models import Prestamos
+from .models import Prestamos,Equipo
 
 class PrestamoForm(forms.ModelForm):
     class Meta:
@@ -9,3 +9,8 @@ class PrestamoForm(forms.ModelForm):
             "fechad":forms.SelectDateWidget()
         }
 
+class EquipoForm(forms.ModelForm):
+    class Meta:
+        model = Equipo
+        fields = '__all__'
+        

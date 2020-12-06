@@ -17,27 +17,33 @@
       <div class="container-fluid">
         <a class="navbar-brand text-white mr-5" href="#"><img class="img-logo" src="{% static 'img/duo.png' %}" alt="">
           </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
           aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon "></span>
         </button>
-        <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+        <div class="collapse navbar-collapse  justify-content-end " id="navbarNavAltMarkup">
           <div class="navbar-nav ">
 
-            <a class="nav-link text-white {% if request.path == '/' %} active {% endif %}" aria-current="page"
+            <a class="nav-link text-white " aria-current="page"
               href="{% url 'home' %}">Home</a>
-            <a class="nav-link  text-white {% if request.path == '/equipos/' %} active {% endif %}"
+
+            <a class="nav-link  text-white "
               href="{% url 'equipos' %}">Equipos de prestamos</a>
-            <a class="nav-link  text-white {% if request.path == '/equipos/' %} active {% endif %}"
+
+              {% if user.is_authenticated %}
+            <a class="nav-link  text-white "
               href="{% url 'agregar_pres' %}">Agregar Prestamo</a>
-            <a class="nav-link   text-white {% if request.path == '/equipos/' %} active {% endif %}"
+
+            <a class="nav-link   text-white "
               href="{% url 'listar_pres' %}">Listar Prestamo</a>
+
+            <a class="nav-link   text-white "
+              href="{% url 'agregar_e' %}">Agregar Equipo</a>
             
-            {% if user.is_authenticated %}
             <a class="nav-link  text-white {% if request.path == '/equipos/' %} active {% endif %}"
               href="{% url 'logout' %}">Cerrar sesion</a>
 
-            <a href="#">@{{user.username}}</a>
+            <i class="fas fa-user-clock text-white"></i>
 
             {% else %}
             <a class="nav-link  text-white {% if request.path == '/equipos/' %} active {% endif %}"

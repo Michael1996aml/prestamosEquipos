@@ -4,7 +4,7 @@ from django.db import models
 class Equipo(models.Model):
     titulo = models.CharField(max_length=200, verbose_name="Titulo del Equipo")
     descripcion = models.TextField(verbose_name="Detalle del Equipo")
-    imagen = models.URLField(max_length=200, verbose_name="URL de la imagen")
+    imagen = models.ImageField(upload_to='equipos',verbose_name="Imagen del producto")
     estado = models.BooleanField(verbose_name="Disponible ?",default=False)
     ingresado = models.DateTimeField(auto_now_add=True,verbose_name="Fecha de ingreso")
 
